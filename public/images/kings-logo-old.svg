@@ -1,0 +1,36 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Abuja Kings Football Academy Logo</title>
+  <desc id="desc">Circular navy and gold football academy emblem.</desc>
+  <defs>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f8dfa5"/>
+      <stop offset="50%" stop-color="#d8a43a"/>
+      <stop offset="100%" stop-color="#a8741f"/>
+    </linearGradient>
+    <radialGradient id="navy" cx="50%" cy="35%" r="70%">
+      <stop offset="0%" stop-color="#17397a"/>
+      <stop offset="100%" stop-color="#08163a"/>
+    </radialGradient>
+  </defs>
+
+  <circle cx="256" cy="256" r="246" fill="url(#gold)"/>
+  <circle cx="256" cy="256" r="230" fill="url(#navy)"/>
+  <circle cx="256" cy="256" r="198" fill="none" stroke="url(#gold)" stroke-width="14"/>
+
+  <text x="256" y="86" fill="url(#gold)" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" text-anchor="middle" letter-spacing="2">ABUJA</text>
+  <text x="256" y="438" fill="url(#gold)" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" text-anchor="middle" letter-spacing="2">KINGS FOOTBALL ACADEMY</text>
+
+  <path d="M146 196 C146 146 182 114 236 114 C292 114 326 148 326 196 C326 236 301 265 268 281 L268 300 C296 304 320 327 330 362 L291 362 C283 338 266 326 236 326 C206 326 189 338 181 362 L142 362 C152 327 176 304 204 300 L204 281 C171 265 146 236 146 196 Z" fill="url(#gold)"/>
+  <circle cx="236" cy="196" r="15" fill="#08163a"/>
+  <circle cx="286" cy="196" r="15" fill="#08163a"/>
+  <path d="M236 242 C248 251 274 251 286 242" fill="none" stroke="#08163a" stroke-width="10" stroke-linecap="round"/>
+
+  <circle cx="256" cy="384" r="44" fill="#ffffff" stroke="#111111" stroke-width="5"/>
+  <polygon points="256,352 273,363 269,382 243,382 239,363" fill="#111111"/>
+  <polygon points="223,375 238,385 234,403 214,403 208,387" fill="#111111"/>
+  <polygon points="289,375 304,387 298,403 278,403 274,385" fill="#111111"/>
+
+  <path d="M174 124 L196 80 L218 124 Z" fill="url(#gold)"/>
+  <path d="M236 105 L256 64 L276 105 Z" fill="url(#gold)"/>
+  <path d="M294 124 L316 80 L338 124 Z" fill="url(#gold)"/>
+</svg>
