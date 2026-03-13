@@ -27,6 +27,7 @@ use App\Http\Controllers\VideoClipController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/sitemap.xml', [HomeController::class, 'sitemap'])->name('sitemap');
 
 Route::view('/about', 'pages.about', [
     'pageTitle' => 'About',
