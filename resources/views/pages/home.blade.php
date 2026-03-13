@@ -59,7 +59,7 @@
         <div class="row g-4" data-stagger>
             <div class="col-lg-4">
                 <article class="image-story card border-0 shadow-sm h-100 reveal">
-                    <img src="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=900&q=80" alt="Player with football in training" class="story-image">
+                    <img src="https://images.unsplash.com/photo-1771257807779-a72e74deaa11?auto=format&fit=crop&w=900&q=80" alt="Player with football in training" class="story-image">
                     <div class="card-body">
                         <h3 class="h6 text-brand mb-1">Technical Sessions</h3>
                         <p class="small text-secondary mb-0">Ball mastery, first touch, scanning, and decision speed.</p>
