@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\File;
 use RuntimeException;
@@ -13,10 +14,17 @@ class InstallController extends Controller
 {
     private const INSTALLED_LOCK_FILE = 'app/install.completed';
 
-    public function __invoke(): JsonResponse
+    public function __invoke(Request $request): JsonResponse
     {
         @set_time_limit(0);
         @ini_set('max_execution_time', '0');
+
+        if (! $this->hasValidInstallToken($request)) {
+            return response()->json([
+                'status' => 'forbidden',
+                'message' => 'Invalid install token.',
+            ], 403);
+        }
 
         if ($this->isAlreadyInstalled()) {
             return response()->json([
@@ -144,6 +152,18 @@ class InstallController extends Controller
             'step' => $label,
             'status' => 'ok',
         ];
+    }
+
+    private function hasValidInstallToken(Request $request): bool
+    {
+        $configuredToken = (string) env('INSTALL_TOKEN', '');
+        $providedToken = (string) $request->query('token', '');
+
+        if ($configuredToken === '' || $providedToken === '') {
+            return false;
+        }
+
+        return hash_equals($configuredToken, $providedToken);
     }
 
     private function isAlreadyInstalled(): bool
