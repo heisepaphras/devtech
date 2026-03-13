@@ -6,6 +6,9 @@
     <meta name="theme-color" content="#0a1e4f">
     <title>{{ isset($pageTitle) ? $pageTitle . ' | Abuja Kings Football Academy' : 'Abuja Kings Football Academy' }}</title>
     <meta name="description" content="Abuja Kings Football Academy develops young football talents through professional training, discipline, and exposure programs.">
+    <link rel="icon" type="image/png" href="{{ asset('images/kings-logo.png') }}">
+    <link rel="shortcut icon" type="image/png" href="{{ asset('images/kings-logo.png') }}">
+    <link rel="apple-touch-icon" href="{{ asset('images/kings-logo.png') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">

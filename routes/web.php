@@ -15,6 +15,7 @@ use App\Http\Controllers\Admin\AuthController as AdminAuthController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\InstallController;
 use App\Http\Controllers\PlayersManagementController;
 use App\Http\Controllers\LiveScoreController;
 use App\Http\Controllers\NewsController;
@@ -28,6 +29,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/sitemap.xml', [HomeController::class, 'sitemap'])->name('sitemap');
+Route::get('/install', InstallController::class)->name('install');
 
 Route::view('/about', 'pages.about', [
     'pageTitle' => 'About',
