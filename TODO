@@ -6,3 +6,4 @@
 6. Remove all the manage buttons on each page, these can and should only be done from the admin panel.
 7. Create terms, privacy and support pages.
 8. The idea of gallery is to have create a section then there should be a dropzone where different images can be dropped and the first image uploaded will be the featured image.
+9. Add a copyright at the footer
