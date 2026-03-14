@@ -105,9 +105,9 @@ try {
 
 function runCommandStep(string $label, string $command, string $workingDirectory, array &$steps): void
 {
-    if (! function_exists('exec')) {
-        throw new RuntimeException('The exec() function is disabled on this server.');
-    }
+    // if (! function_exists('exec')) {
+    //     throw new RuntimeException('The exec() function is disabled on this server.');
+    // }
 
     $outputLines = [];
     $exitCode = 0;
