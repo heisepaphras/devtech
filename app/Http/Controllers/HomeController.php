@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\EventItem;
 use App\Models\GalleryItem;
+use App\Models\HomeSettings;
 use App\Models\LiveScore;
 use App\Models\News;
 use App\Models\PlayerProfile;
@@ -70,12 +71,13 @@ class HomeController extends Controller
         });
 
         return view('pages.home', [
-            'pageTitle' => 'Home',
-            'newsItems' => $newsItems,
+            'pageTitle'    => 'Home',
+            'homeSettings' => HomeSettings::instance(),
+            'newsItems'    => $newsItems,
             'galleryItems' => $galleryItems,
-            'videoItems' => $videoItems,
-            'liveScores' => $liveScores,
-            'eventItems' => $eventItems,
+            'videoItems'   => $videoItems,
+            'liveScores'   => $liveScores,
+            'eventItems'   => $eventItems,
         ]);
     }
 

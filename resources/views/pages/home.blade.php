@@ -5,39 +5,41 @@
     <div class="container py-lg-4 position-relative">
         <div class="row g-4 align-items-center">
             <div class="col-lg-6">
-                <span class="kicker reveal">KINGS FOOTBALL ACADEMY, ABUJA</span>
+                <span class="kicker reveal">{{ $homeSettings->hero_kicker }}</span>
                 <h1 class="display-4 fw-bold text-white mt-2 mb-3 reveal">
-                    Building elite football talent with discipline, identity, and modern coaching.
+                    {{ $homeSettings->hero_title }}
                 </h1>
                 <p class="hero-copy mb-4 reveal">
-                    Abuja Kings Football Academy develops players for local and international pathways through structured training,
-                    tactical intelligence, character building, and consistent match exposure.
+                    {{ $homeSettings->hero_copy }}
                 </p>
                 <div class="d-flex flex-wrap gap-2 reveal">
                     <a class="btn btn-brand btn-lg" href="{{ route('register') }}">Start Registration</a>
                     <a class="btn btn-outline-light btn-lg" href="{{ route('scouting.trials') }}">View Trials</a>
+                    <a class="btn btn-outline-light btn-lg" href="{{ route('screening.form') }}">
+                        <i class="fa-solid fa-file-arrow-down me-1"></i>Screening Form
+                    </a>
                 </div>
                 <div class="hero-metrics mt-4 reveal">
-                    <span class="metric-pill">Youth Development</span>
-                    <span class="metric-pill">Scouting Pathway</span>
-                    <span class="metric-pill">Character + Leadership</span>
+                    <span class="metric-pill">{{ $homeSettings->hero_metric_1 }}</span>
+                    <span class="metric-pill">{{ $homeSettings->hero_metric_2 }}</span>
+                    <span class="metric-pill">{{ $homeSettings->hero_metric_3 }}</span>
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="hero-visual reveal">
                     <img
-                        src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=1200&q=80"
+                        src="{{ $homeSettings->hero_main_image ? asset('storage/' . $homeSettings->hero_main_image) : 'https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=1200&q=80' }}"
                         alt="Football training session"
                         class="hero-main-image"
                     >
                     <div class="hero-floating-card">
-                        <span class="small text-uppercase fw-semibold text-secondary">Next Open Trials</span>
-                        <p class="h5 mb-1 mt-1 text-brand">Saturday 9:00 AM</p>
-                        <p class="small mb-0 text-secondary">Abuja Kings Training Ground</p>
+                        <span class="small text-uppercase fw-semibold text-secondary">{{ $homeSettings->hero_trials_label }}</span>
+                        <p class="h5 mb-1 mt-1 text-brand">{{ $homeSettings->hero_trials_date }}</p>
+                        <p class="small mb-0 text-secondary">{{ $homeSettings->hero_trials_location }}</p>
                     </div>
                     <div class="hero-thumb-grid">
-                        <img src="https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?auto=format&fit=crop&w=700&q=80" alt="Academy football match">
-                        <img src="https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&fit=crop&w=700&q=80" alt="Coaching and tactical briefing">
+                        <img src="{{ $homeSettings->hero_thumb_1 ? asset('storage/' . $homeSettings->hero_thumb_1) : 'https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?auto=format&fit=crop&w=700&q=80' }}" alt="Academy football match">
+                        <img src="{{ $homeSettings->hero_thumb_2 ? asset('storage/' . $homeSettings->hero_thumb_2) : 'https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&fit=crop&w=700&q=80' }}" alt="Coaching and tactical briefing">
                     </div>
                 </div>
             </div>
@@ -49,9 +51,9 @@
     <div class="container">
         <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end gap-2 mb-4">
             <div>
-                <span class="kicker kicker-dark">Academy In Motion</span>
-                <h2 class="section-title mb-1 mt-2">A Visual Look At Kings</h2>
-                <p class="text-secondary mb-0">Training intensity, match temperament, and player growth in one pathway.</p>
+                <span class="kicker kicker-dark">{{ $homeSettings->visual_kicker }}</span>
+                <h2 class="section-title mb-1 mt-2">{{ $homeSettings->visual_title }}</h2>
+                <p class="text-secondary mb-0">{{ $homeSettings->visual_description }}</p>
             </div>
             <a href="{{ route('gallery') }}" class="btn btn-outline-brand">View Full Gallery</a>
         </div>
@@ -59,28 +61,28 @@
         <div class="row g-4" data-stagger>
             <div class="col-lg-4">
                 <article class="image-story card border-0 shadow-sm h-100 reveal">
-                    <img src="https://images.unsplash.com/photo-1771257807779-a72e74deaa11?auto=format&fit=crop&w=900&q=80" alt="Player with football in training" class="story-image">
+                    <img src="{{ $homeSettings->visual_card_1_image ? asset('storage/' . $homeSettings->visual_card_1_image) : 'https://images.unsplash.com/photo-1771257807779-a72e74deaa11?auto=format&fit=crop&w=900&q=80' }}" alt="{{ $homeSettings->visual_card_1_title }}" class="story-image">
                     <div class="card-body">
-                        <h3 class="h6 text-brand mb-1">Technical Sessions</h3>
-                        <p class="small text-secondary mb-0">Ball mastery, first touch, scanning, and decision speed.</p>
+                        <h3 class="h6 text-brand mb-1">{{ $homeSettings->visual_card_1_title }}</h3>
+                        <p class="small text-secondary mb-0">{{ $homeSettings->visual_card_1_description }}</p>
                     </div>
                 </article>
             </div>
             <div class="col-lg-4">
                 <article class="image-story card border-0 shadow-sm h-100 reveal">
-                    <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=900&q=80" alt="Football match moment" class="story-image">
+                    <img src="{{ $homeSettings->visual_card_2_image ? asset('storage/' . $homeSettings->visual_card_2_image) : 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=900&q=80' }}" alt="{{ $homeSettings->visual_card_2_title }}" class="story-image">
                     <div class="card-body">
-                        <h3 class="h6 text-brand mb-1">Competitive Fixtures</h3>
-                        <p class="small text-secondary mb-0">Structured match exposure to test tactical and mental growth.</p>
+                        <h3 class="h6 text-brand mb-1">{{ $homeSettings->visual_card_2_title }}</h3>
+                        <p class="small text-secondary mb-0">{{ $homeSettings->visual_card_2_description }}</p>
                     </div>
                 </article>
             </div>
             <div class="col-lg-4">
                 <article class="image-story card border-0 shadow-sm h-100 reveal">
-                    <img src="https://images.unsplash.com/photo-1518604666860-9ed391f76460?auto=format&fit=crop&w=900&q=80" alt="Coach mentoring player" class="story-image">
+                    <img src="{{ $homeSettings->visual_card_3_image ? asset('storage/' . $homeSettings->visual_card_3_image) : 'https://images.unsplash.com/photo-1518604666860-9ed391f76460?auto=format&fit=crop&w=900&q=80' }}" alt="{{ $homeSettings->visual_card_3_title }}" class="story-image">
                     <div class="card-body">
-                        <h3 class="h6 text-brand mb-1">Mentorship & Discipline</h3>
-                        <p class="small text-secondary mb-0">Building leaders on and off the pitch through mentorship.</p>
+                        <h3 class="h6 text-brand mb-1">{{ $homeSettings->visual_card_3_title }}</h3>
+                        <p class="small text-secondary mb-0">{{ $homeSettings->visual_card_3_description }}</p>
                     </div>
                 </article>
             </div>

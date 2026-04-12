@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\PlayerValueController as AdminPlayerValueControll
 use App\Http\Controllers\Admin\LiveScoreController as AdminLiveScoreController;
 use App\Http\Controllers\Admin\RegistrationController as AdminRegistrationController;
 use App\Http\Controllers\Admin\AuthController as AdminAuthController;
+use App\Http\Controllers\Admin\HomeSettingsController as AdminHomeSettingsController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\HomeController;
@@ -68,6 +69,10 @@ Route::get('/scouting-trials-programs/{slug}', [ScoutingProgramController::class
 Route::get('/register', [RegisterController::class, 'create'])->name('register');
 Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
 
+Route::view('/screening-form', 'pages.screening-form', [
+    'pageTitle' => 'Screening Form',
+])->name('screening.form');
+
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::middleware('admin.guest')->group(function () {
         Route::get('/login', [AdminAuthController::class, 'create'])->name('login');
@@ -77,6 +82,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::middleware('admin.auth')->group(function () {
         Route::post('/logout', [AdminAuthController::class, 'destroy'])->name('logout');
         Route::redirect('/', '/admin/news')->name('dashboard');
+
+        Route::get('/home-settings', [AdminHomeSettingsController::class, 'edit'])->name('home-settings.edit');
+        Route::put('/home-settings', [AdminHomeSettingsController::class, 'update'])->name('home-settings.update');
 
         Route::get('/news', [AdminNewsController::class, 'index'])->name('news.index');
         Route::get('/news/create', [AdminNewsController::class, 'create'])->name('news.create');
