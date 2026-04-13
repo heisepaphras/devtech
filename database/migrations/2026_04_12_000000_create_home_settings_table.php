@@ -15,7 +15,7 @@ return new class extends Migration
             // Hero section text
             $table->string('hero_kicker')->default('KINGS FOOTBALL ACADEMY, ABUJA');
             $table->string('hero_title')->default('Building elite football talent with discipline, identity, and modern coaching.');
-            $table->text('hero_copy')->default('Abuja Kings Football Academy develops players for local and international pathways through structured training, tactical intelligence, character building, and consistent match exposure.');
+            $table->string('hero_copy', 500)->default('Abuja Kings Football Academy develops players for local and international pathways through structured training, tactical intelligence, character building, and consistent match exposure.');
             $table->string('hero_metric_1')->default('Youth Development');
             $table->string('hero_metric_2')->default('Scouting Pathway');
             $table->string('hero_metric_3')->default('Character + Leadership');
