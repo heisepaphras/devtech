@@ -14,7 +14,7 @@
             <div class="col-lg-10 col-xl-9">
                 <article class="card border-0 shadow-sm">
                     <img
-                        src="{{ $program->featured_image ? asset('storage/' . $program->featured_image) : asset('images/gallery-placeholder.svg') }}"
+                        src="{{ $program->featured_image ? $program->featured_image : asset('images/gallery-placeholder.svg') }}"
                         alt="{{ $program->title }}"
                         class="card-img-top news-card-img"
                     >
@@ -91,7 +91,7 @@
                 <div class="col">
                     <article class="card h-100 border-0 shadow-sm">
                         <img
-                            src="{{ $item->featured_image ? asset('storage/' . $item->featured_image) : asset('images/gallery-placeholder.svg') }}"
+                            src="{{ $item->featured_image ? $item->featured_image : asset('images/gallery-placeholder.svg') }}"
                             alt="{{ $item->title }}"
                             class="card-img-top news-card-img"
                         >

@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\TransferItem;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
+use App\Services\CloudinaryUploader;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 use Illuminate\View\View;
@@ -87,7 +87,7 @@ class TransferMarketController extends Controller
     public function destroy(TransferItem $transferItem): RedirectResponse
     {
         if ($transferItem->player_image) {
-            Storage::disk('public')->delete($transferItem->player_image);
+            CloudinaryUploader::deleteImage($transferItem->player_image);
         }
 
         $transferItem->delete();
@@ -147,10 +147,10 @@ class TransferMarketController extends Controller
         $transferItem->transfer_fee = $validated['transfer_fee'] ?? null;
         if ($request->hasFile('player_image')) {
             if ($transferItem->player_image) {
-                Storage::disk('public')->delete($transferItem->player_image);
+                CloudinaryUploader::deleteImage($transferItem->player_image);
             }
 
-            $transferItem->player_image = $request->file('player_image')->store('transfers', 'public');
+            $transferItem->player_image = CloudinaryUploader::uploadImage($request->file('player_image'), 'transfers');
         }
         $transferItem->contract_until = $validated['contract_until'] ?? null;
         $transferItem->summary = $validated['summary'] ?? null;

@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\ScoutingProgram;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
+use App\Services\CloudinaryUploader;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 use Illuminate\View\View;
@@ -69,7 +69,7 @@ class ScoutingProgramController extends Controller
     public function destroy(ScoutingProgram $scoutingProgram): RedirectResponse
     {
         if ($scoutingProgram->featured_image) {
-            Storage::disk('public')->delete($scoutingProgram->featured_image);
+            CloudinaryUploader::deleteImage($scoutingProgram->featured_image);
         }
 
         $scoutingProgram->delete();
@@ -127,10 +127,10 @@ class ScoutingProgramController extends Controller
         $program->registration_link = $validated['registration_link'] ?? null;
         if ($request->hasFile('featured_image')) {
             if ($program->featured_image) {
-                Storage::disk('public')->delete($program->featured_image);
+                CloudinaryUploader::deleteImage($program->featured_image);
             }
 
-            $program->featured_image = $request->file('featured_image')->store('programs', 'public');
+            $program->featured_image = CloudinaryUploader::uploadImage($request->file('featured_image'), 'programs');
         }
         $program->fee = $validated['fee'] ?? null;
         $program->description = $validated['description'] ?? null;

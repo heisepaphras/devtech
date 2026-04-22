@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\PlayerProfile;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
+use App\Services\CloudinaryUploader;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 use Illuminate\View\View;
@@ -74,11 +74,11 @@ class PlayerProfileController extends Controller
     public function destroy(PlayerProfile $playerProfile): RedirectResponse
     {
         if ($playerProfile->profile_image) {
-            Storage::disk('public')->delete($playerProfile->profile_image);
+            CloudinaryUploader::deleteImage($playerProfile->profile_image);
         }
 
         if ($playerProfile->cv_document) {
-            Storage::disk('public')->delete($playerProfile->cv_document);
+            CloudinaryUploader::deleteRaw($playerProfile->cv_document);
         }
 
         $playerProfile->delete();
@@ -155,18 +155,18 @@ class PlayerProfileController extends Controller
 
         if ($request->hasFile('profile_image')) {
             if ($playerProfile->profile_image) {
-                Storage::disk('public')->delete($playerProfile->profile_image);
+                CloudinaryUploader::deleteImage($playerProfile->profile_image);
             }
 
-            $playerProfile->profile_image = $request->file('profile_image')->store('players', 'public');
+            $playerProfile->profile_image = CloudinaryUploader::uploadImage($request->file('profile_image'), 'players');
         }
 
         if ($request->hasFile('cv_document')) {
             if ($playerProfile->cv_document) {
-                Storage::disk('public')->delete($playerProfile->cv_document);
+                CloudinaryUploader::deleteRaw($playerProfile->cv_document);
             }
 
-            $playerProfile->cv_document = $request->file('cv_document')->store('players/cv', 'public');
+            $playerProfile->cv_document = CloudinaryUploader::uploadRaw($request->file('cv_document'), 'players/cv');
         }
 
         $playerProfile->save();

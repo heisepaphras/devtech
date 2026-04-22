@@ -105,13 +105,13 @@
                 @if ($liveScore->home_logo)
                     <div class="col-md-6">
                         <span class="fw-semibold d-block mb-2">Current home logo:</span>
-                        <img src="{{ asset('storage/' . $liveScore->home_logo) }}" alt="Current home club logo" class="img-thumbnail image-preview">
+                        <img src="{{ $liveScore->home_logo }}" alt="Current home club logo" class="img-thumbnail image-preview">
                     </div>
                 @endif
                 @if ($liveScore->away_logo)
                     <div class="col-md-6">
                         <span class="fw-semibold d-block mb-2">Current away logo:</span>
-                        <img src="{{ asset('storage/' . $liveScore->away_logo) }}" alt="Current away club logo" class="img-thumbnail image-preview">
+                        <img src="{{ $liveScore->away_logo }}" alt="Current away club logo" class="img-thumbnail image-preview">
                     </div>
                 @endif
             </div>

@@ -18,7 +18,7 @@
                         $valueImage = $playerValue->player_image ?: $playerValue->playerProfile?->profile_image;
                     @endphp
                     <img
-                        src="{{ $valueImage ? asset('storage/' . $valueImage) : asset('images/gallery-placeholder.svg') }}"
+                        src="{{ $valueImage ? $valueImage : asset('images/gallery-placeholder.svg') }}"
                         alt="{{ $playerValue->player_name_snapshot }}"
                         class="card-img-top news-card-img"
                     >
@@ -73,7 +73,7 @@
                             $relatedValueImage = $item->player_image ?: $item->playerProfile?->profile_image;
                         @endphp
                         <img
-                            src="{{ $relatedValueImage ? asset('storage/' . $relatedValueImage) : asset('images/gallery-placeholder.svg') }}"
+                            src="{{ $relatedValueImage ? $relatedValueImage : asset('images/gallery-placeholder.svg') }}"
                             alt="{{ $item->player_name_snapshot }}"
                             class="card-img-top news-card-img"
                         >

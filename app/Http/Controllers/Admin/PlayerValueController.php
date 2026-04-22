@@ -7,7 +7,7 @@ use App\Models\PlayerProfile;
 use App\Models\PlayerValue;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
+use App\Services\CloudinaryUploader;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 use Illuminate\View\View;
@@ -148,10 +148,10 @@ class PlayerValueController extends Controller
         $playerValue->player_name_snapshot = $validated['player_name_snapshot'];
         if ($request->hasFile('player_image')) {
             if ($playerValue->player_image) {
-                Storage::disk('public')->delete($playerValue->player_image);
+                CloudinaryUploader::deleteImage($playerValue->player_image);
             }
 
-            $playerValue->player_image = $request->file('player_image')->store('player-values', 'public');
+            $playerValue->player_image = CloudinaryUploader::uploadImage($request->file('player_image'), 'player-values');
         }
         $playerValue->slug = $this->generateUniqueSlug(
             $validated['slug'] ?? null,

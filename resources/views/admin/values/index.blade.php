@@ -42,7 +42,7 @@
                                         $valueImage = $item->player_image ?: $item->playerProfile?->profile_image;
                                     @endphp
                                     <img
-                                        src="{{ $valueImage ? asset('storage/' . $valueImage) : asset('images/gallery-placeholder.svg') }}"
+                                        src="{{ $valueImage ? $valueImage : asset('images/gallery-placeholder.svg') }}"
                                         alt="{{ $item->player_name_snapshot }}"
                                         class="img-thumbnail"
                                         style="width: 64px; height: 64px; object-fit: cover;"

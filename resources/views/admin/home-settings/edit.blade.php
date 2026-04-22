@@ -91,7 +91,7 @@
                             <label class="form-label fw-semibold">Main Hero Image</label>
                             @if ($settings->hero_main_image)
                                 <div class="mb-2">
-                                    <img src="{{ asset('storage/' . $settings->hero_main_image) }}" alt="Main hero" class="img-fluid rounded" style="max-height:160px; object-fit:cover; width:100%;">
+                                    <img src="{{ $settings->hero_main_image }}" alt="Main hero" class="img-fluid rounded" style="max-height:160px; object-fit:cover; width:100%;">
                                 </div>
                             @endif
                             <input type="file" name="hero_main_image" accept="image/*" class="form-control">
@@ -101,7 +101,7 @@
                             <label class="form-label fw-semibold">Thumbnail Image 1</label>
                             @if ($settings->hero_thumb_1)
                                 <div class="mb-2">
-                                    <img src="{{ asset('storage/' . $settings->hero_thumb_1) }}" alt="Thumbnail 1" class="img-fluid rounded" style="max-height:160px; object-fit:cover; width:100%;">
+                                    <img src="{{ $settings->hero_thumb_1 }}" alt="Thumbnail 1" class="img-fluid rounded" style="max-height:160px; object-fit:cover; width:100%;">
                                 </div>
                             @endif
                             <input type="file" name="hero_thumb_1" accept="image/*" class="form-control">
@@ -111,7 +111,7 @@
                             <label class="form-label fw-semibold">Thumbnail Image 2</label>
                             @if ($settings->hero_thumb_2)
                                 <div class="mb-2">
-                                    <img src="{{ asset('storage/' . $settings->hero_thumb_2) }}" alt="Thumbnail 2" class="img-fluid rounded" style="max-height:160px; object-fit:cover; width:100%;">
+                                    <img src="{{ $settings->hero_thumb_2 }}" alt="Thumbnail 2" class="img-fluid rounded" style="max-height:160px; object-fit:cover; width:100%;">
                                 </div>
                             @endif
                             <input type="file" name="hero_thumb_2" accept="image/*" class="form-control">
@@ -156,7 +156,7 @@
                             <label class="form-label fw-semibold">Image</label>
                             @if ($settings->{"visual_card_{$n}_image"})
                                 <div class="mb-2">
-                                    <img src="{{ asset('storage/' . $settings->{"visual_card_{$n}_image"}) }}" alt="Card {{ $n }}" class="img-fluid rounded" style="max-height:160px; object-fit:cover; width:100%;">
+                                    <img src="{{ $settings->{"visual_card_{$n}_image"} }}" alt="Card {{ $n }}" class="img-fluid rounded" style="max-height:160px; object-fit:cover; width:100%;">
                                 </div>
                             @endif
                             <input type="file" name="visual_card_{{ $n }}_image" accept="image/*" class="form-control">

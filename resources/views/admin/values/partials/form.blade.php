@@ -84,7 +84,7 @@
     @if ($playerValue->player_image)
         <div class="col-12">
             <span class="fw-semibold d-block mb-2">Current image:</span>
-            <img src="{{ asset('storage/' . $playerValue->player_image) }}" alt="Current player value image" class="img-thumbnail image-preview">
+            <img src="{{ $playerValue->player_image }}" alt="Current player value image" class="img-thumbnail image-preview">
         </div>
     @endif
 

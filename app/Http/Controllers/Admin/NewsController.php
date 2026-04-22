@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\News;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
+use App\Services\CloudinaryUploader;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 use Illuminate\View\View;
@@ -67,7 +67,7 @@ class NewsController extends Controller
     public function destroy(News $news): RedirectResponse
     {
         if ($news->cover_image) {
-            Storage::disk('public')->delete($news->cover_image);
+            CloudinaryUploader::deleteImage($news->cover_image);
         }
 
         $news->delete();
@@ -121,10 +121,10 @@ class NewsController extends Controller
 
         if ($request->hasFile('cover_image')) {
             if ($news->cover_image) {
-                Storage::disk('public')->delete($news->cover_image);
+                CloudinaryUploader::deleteImage($news->cover_image);
             }
 
-            $news->cover_image = $request->file('cover_image')->store('news', 'public');
+            $news->cover_image = CloudinaryUploader::uploadImage($request->file('cover_image'), 'news');
         }
 
         $news->save();

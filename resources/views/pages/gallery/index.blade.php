@@ -29,12 +29,12 @@
                                 class="gallery-shot-btn"
                                 data-bs-toggle="modal"
                                 data-bs-target="#galleryLightbox"
-                                data-image="{{ $item->image_path ? asset('storage/' . $item->image_path) : asset('images/gallery-placeholder.svg') }}"
+                                data-image="{{ $item->image_path ? $item->image_path : asset('images/gallery-placeholder.svg') }}"
                                 data-title="{{ $item->title }}"
                                 data-meta="{{ trim(($item->category ? $item->category . ' • ' : '') . (optional($item->captured_at)->format('M d, Y') ?? 'Date not set')) }}"
                                 aria-label="Open {{ $item->title }}">
                                 <img
-                                    src="{{ $item->image_path ? asset('storage/' . $item->image_path) : asset('images/gallery-placeholder.svg') }}"
+                                    src="{{ $item->image_path ? $item->image_path : asset('images/gallery-placeholder.svg') }}"
                                     alt="{{ $item->title }}"
                                     class="card-img-top gallery-thumb"
                                 >

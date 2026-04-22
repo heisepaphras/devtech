@@ -31,8 +31,8 @@
                                     <span class="small text-secondary">{{ $match->live_minute ? $match->live_minute . "'" : '' }}</span>
                                 </div>
                                 <div class="d-flex align-items-center gap-2 mb-2">
-                                    <img src="{{ $match->home_logo ? asset('storage/' . $match->home_logo) : asset('images/kings-logo.svg') }}" alt="{{ $match->home_team }}" class="img-thumbnail p-1" style="width: 34px; height: 34px; object-fit: cover;">
-                                    <img src="{{ $match->away_logo ? asset('storage/' . $match->away_logo) : asset('images/kings-logo.svg') }}" alt="{{ $match->away_team }}" class="img-thumbnail p-1" style="width: 34px; height: 34px; object-fit: cover;">
+                                    <img src="{{ $match->home_logo ? $match->home_logo : asset('images/kings-logo.svg') }}" alt="{{ $match->home_team }}" class="img-thumbnail p-1" style="width: 34px; height: 34px; object-fit: cover;">
+                                    <img src="{{ $match->away_logo ? $match->away_logo : asset('images/kings-logo.svg') }}" alt="{{ $match->away_team }}" class="img-thumbnail p-1" style="width: 34px; height: 34px; object-fit: cover;">
                                 </div>
                                 <p class="small text-secondary mb-2">{{ $match->competition ?: 'Friendly Match' }}</p>
                                 <h3 class="h6 mb-1">{{ $match->home_team }}</h3>
@@ -66,8 +66,8 @@
                             <div class="card-body">
                                 <span class="badge text-bg-primary mb-2">Upcoming</span>
                                 <div class="d-flex align-items-center gap-2 mb-2">
-                                    <img src="{{ $match->home_logo ? asset('storage/' . $match->home_logo) : asset('images/kings-logo.svg') }}" alt="{{ $match->home_team }}" class="img-thumbnail p-1" style="width: 34px; height: 34px; object-fit: cover;">
-                                    <img src="{{ $match->away_logo ? asset('storage/' . $match->away_logo) : asset('images/kings-logo.svg') }}" alt="{{ $match->away_team }}" class="img-thumbnail p-1" style="width: 34px; height: 34px; object-fit: cover;">
+                                    <img src="{{ $match->home_logo ? $match->home_logo : asset('images/kings-logo.svg') }}" alt="{{ $match->home_team }}" class="img-thumbnail p-1" style="width: 34px; height: 34px; object-fit: cover;">
+                                    <img src="{{ $match->away_logo ? $match->away_logo : asset('images/kings-logo.svg') }}" alt="{{ $match->away_team }}" class="img-thumbnail p-1" style="width: 34px; height: 34px; object-fit: cover;">
                                 </div>
                                 <p class="small text-secondary mb-2">{{ optional($match->kickoff_at)->format('M d, Y h:i A') }}</p>
                                 <p class="small text-secondary mb-2">{{ $match->competition ?: 'Friendly Match' }}</p>
@@ -102,8 +102,8 @@
                             <div class="card-body">
                                 <span class="badge text-bg-success mb-2">Completed</span>
                                 <div class="d-flex align-items-center gap-2 mb-2">
-                                    <img src="{{ $match->home_logo ? asset('storage/' . $match->home_logo) : asset('images/kings-logo.svg') }}" alt="{{ $match->home_team }}" class="img-thumbnail p-1" style="width: 34px; height: 34px; object-fit: cover;">
-                                    <img src="{{ $match->away_logo ? asset('storage/' . $match->away_logo) : asset('images/kings-logo.svg') }}" alt="{{ $match->away_team }}" class="img-thumbnail p-1" style="width: 34px; height: 34px; object-fit: cover;">
+                                    <img src="{{ $match->home_logo ? $match->home_logo : asset('images/kings-logo.svg') }}" alt="{{ $match->home_team }}" class="img-thumbnail p-1" style="width: 34px; height: 34px; object-fit: cover;">
+                                    <img src="{{ $match->away_logo ? $match->away_logo : asset('images/kings-logo.svg') }}" alt="{{ $match->away_team }}" class="img-thumbnail p-1" style="width: 34px; height: 34px; object-fit: cover;">
                                 </div>
                                 <p class="small text-secondary mb-2">{{ optional($match->kickoff_at)->format('M d, Y h:i A') }}</p>
                                 <p class="small text-secondary mb-2">{{ $match->competition ?: 'Friendly Match' }}</p>

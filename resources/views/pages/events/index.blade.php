@@ -28,7 +28,7 @@
                     <div class="col">
                         <article class="card h-100 border-0 shadow-sm">
                             <img
-                                src="{{ $event->featured_image ? asset('storage/' . $event->featured_image) : asset('images/gallery-placeholder.svg') }}"
+                                src="{{ $event->featured_image ? $event->featured_image : asset('images/gallery-placeholder.svg') }}"
                                 alt="{{ $event->title }}"
                                 class="card-img-top news-card-img"
                             >
@@ -78,7 +78,7 @@
                     <div class="col">
                         <article class="card h-100 border-0 shadow-sm">
                             <img
-                                src="{{ $event->featured_image ? asset('storage/' . $event->featured_image) : asset('images/gallery-placeholder.svg') }}"
+                                src="{{ $event->featured_image ? $event->featured_image : asset('images/gallery-placeholder.svg') }}"
                                 alt="{{ $event->title }}"
                                 class="card-img-top news-card-img"
                             >

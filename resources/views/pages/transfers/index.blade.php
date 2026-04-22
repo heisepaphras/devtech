@@ -19,7 +19,7 @@
                 <div class="col">
                     <article class="card h-100 border-0 shadow-sm">
                         <img
-                            src="{{ $item->player_image ? asset('storage/' . $item->player_image) : asset('images/gallery-placeholder.svg') }}"
+                            src="{{ $item->player_image ? $item->player_image : asset('images/gallery-placeholder.svg') }}"
                             alt="{{ $item->player_name }}"
                             class="card-img-top news-card-img"
                         >
@@ -57,7 +57,7 @@
                     <div class="col">
                         <article class="card h-100 border-0 shadow-sm">
                             <img
-                                src="{{ $item->player_image ? asset('storage/' . $item->player_image) : asset('images/gallery-placeholder.svg') }}"
+                                src="{{ $item->player_image ? $item->player_image : asset('images/gallery-placeholder.svg') }}"
                                 alt="{{ $item->player_name }}"
                                 class="card-img-top news-card-img"
                             >

@@ -29,7 +29,7 @@
                     <div class="col">
                         <article class="card border-0 shadow-sm h-100 overflow-hidden">
                             @if ($player->profile_image)
-                                <img src="{{ asset('storage/' . $player->profile_image) }}" alt="{{ $player->full_name }}" class="card-img-top news-card-img">
+                                <img src="{{ $player->profile_image }}" alt="{{ $player->full_name }}" class="card-img-top news-card-img">
                             @endif
                             <div class="card-body d-flex flex-column">
                                 <h3 class="h6 text-brand mb-1">{{ $player->full_name }}</h3>
@@ -68,7 +68,7 @@
                     <div class="col">
                         <article class="card border-0 shadow-sm h-100 overflow-hidden">
                             @if ($member->image_path)
-                                <img src="{{ asset('storage/' . $member->image_path) }}" alt="{{ $member->full_name }}" class="card-img-top news-card-img">
+                                <img src="{{ $member->image_path }}" alt="{{ $member->full_name }}" class="card-img-top news-card-img">
                             @endif
                             <div class="card-body">
                                 <h3 class="h6 text-brand mb-1">{{ $member->full_name }}</h3>

@@ -76,7 +76,7 @@
     @if ($eventItem->featured_image)
         <div class="col-12">
             <span class="fw-semibold d-block mb-2">Current image:</span>
-            <img src="{{ asset('storage/' . $eventItem->featured_image) }}" alt="Current event image" class="img-thumbnail image-preview">
+            <img src="{{ $eventItem->featured_image }}" alt="Current event image" class="img-thumbnail image-preview">
         </div>
     @endif
 

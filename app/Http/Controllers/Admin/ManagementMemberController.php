@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\ManagementMember;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
+use App\Services\CloudinaryUploader;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 use Illuminate\View\View;
@@ -72,7 +72,7 @@ class ManagementMemberController extends Controller
     public function destroy(ManagementMember $managementMember): RedirectResponse
     {
         if ($managementMember->image_path) {
-            Storage::disk('public')->delete($managementMember->image_path);
+            CloudinaryUploader::deleteImage($managementMember->image_path);
         }
 
         $managementMember->delete();
@@ -132,10 +132,10 @@ class ManagementMemberController extends Controller
 
         if ($request->hasFile('image')) {
             if ($managementMember->image_path) {
-                Storage::disk('public')->delete($managementMember->image_path);
+                CloudinaryUploader::deleteImage($managementMember->image_path);
             }
 
-            $managementMember->image_path = $request->file('image')->store('management', 'public');
+            $managementMember->image_path = CloudinaryUploader::uploadImage($request->file('image'), 'management');
         }
 
         $managementMember->save();

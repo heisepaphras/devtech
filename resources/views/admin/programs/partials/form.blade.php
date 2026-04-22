@@ -86,7 +86,7 @@
     @if ($program->featured_image)
         <div class="col-12">
             <span class="fw-semibold d-block mb-2">Current image:</span>
-            <img src="{{ asset('storage/' . $program->featured_image) }}" alt="Current program image" class="img-thumbnail image-preview">
+            <img src="{{ $program->featured_image }}" alt="Current program image" class="img-thumbnail image-preview">
         </div>
     @endif
 

@@ -28,7 +28,7 @@
             <div class="col-lg-6">
                 <div class="hero-visual reveal">
                     <img
-                        src="{{ $homeSettings->hero_main_image ? asset('storage/' . $homeSettings->hero_main_image) : 'https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=1200&q=80' }}"
+                        src="{{ $homeSettings->hero_main_image ? $homeSettings->hero_main_image : 'https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=1200&q=80' }}"
                         alt="Football training session"
                         class="hero-main-image"
                     >
@@ -38,8 +38,8 @@
                         <p class="small mb-0 text-secondary">{{ $homeSettings->hero_trials_location }}</p>
                     </div>
                     <div class="hero-thumb-grid">
-                        <img src="{{ $homeSettings->hero_thumb_1 ? asset('storage/' . $homeSettings->hero_thumb_1) : 'https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?auto=format&fit=crop&w=700&q=80' }}" alt="Academy football match">
-                        <img src="{{ $homeSettings->hero_thumb_2 ? asset('storage/' . $homeSettings->hero_thumb_2) : 'https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&fit=crop&w=700&q=80' }}" alt="Coaching and tactical briefing">
+                        <img src="{{ $homeSettings->hero_thumb_1 ? $homeSettings->hero_thumb_1 : 'https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?auto=format&fit=crop&w=700&q=80' }}" alt="Academy football match">
+                        <img src="{{ $homeSettings->hero_thumb_2 ? $homeSettings->hero_thumb_2 : 'https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&fit=crop&w=700&q=80' }}" alt="Coaching and tactical briefing">
                     </div>
                 </div>
             </div>
@@ -61,7 +61,7 @@
         <div class="row g-4" data-stagger>
             <div class="col-lg-4">
                 <article class="image-story card border-0 shadow-sm h-100 reveal">
-                    <img src="{{ $homeSettings->visual_card_1_image ? asset('storage/' . $homeSettings->visual_card_1_image) : 'https://images.unsplash.com/photo-1771257807779-a72e74deaa11?auto=format&fit=crop&w=900&q=80' }}" alt="{{ $homeSettings->visual_card_1_title }}" class="story-image">
+                    <img src="{{ $homeSettings->visual_card_1_image ? $homeSettings->visual_card_1_image : 'https://images.unsplash.com/photo-1771257807779-a72e74deaa11?auto=format&fit=crop&w=900&q=80' }}" alt="{{ $homeSettings->visual_card_1_title }}" class="story-image">
                     <div class="card-body">
                         <h3 class="h6 text-brand mb-1">{{ $homeSettings->visual_card_1_title }}</h3>
                         <p class="small text-secondary mb-0">{{ $homeSettings->visual_card_1_description }}</p>
@@ -70,7 +70,7 @@
             </div>
             <div class="col-lg-4">
                 <article class="image-story card border-0 shadow-sm h-100 reveal">
-                    <img src="{{ $homeSettings->visual_card_2_image ? asset('storage/' . $homeSettings->visual_card_2_image) : 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=900&q=80' }}" alt="{{ $homeSettings->visual_card_2_title }}" class="story-image">
+                    <img src="{{ $homeSettings->visual_card_2_image ? $homeSettings->visual_card_2_image : 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=900&q=80' }}" alt="{{ $homeSettings->visual_card_2_title }}" class="story-image">
                     <div class="card-body">
                         <h3 class="h6 text-brand mb-1">{{ $homeSettings->visual_card_2_title }}</h3>
                         <p class="small text-secondary mb-0">{{ $homeSettings->visual_card_2_description }}</p>
@@ -79,7 +79,7 @@
             </div>
             <div class="col-lg-4">
                 <article class="image-story card border-0 shadow-sm h-100 reveal">
-                    <img src="{{ $homeSettings->visual_card_3_image ? asset('storage/' . $homeSettings->visual_card_3_image) : 'https://images.unsplash.com/photo-1518604666860-9ed391f76460?auto=format&fit=crop&w=900&q=80' }}" alt="{{ $homeSettings->visual_card_3_title }}" class="story-image">
+                    <img src="{{ $homeSettings->visual_card_3_image ? $homeSettings->visual_card_3_image : 'https://images.unsplash.com/photo-1518604666860-9ed391f76460?auto=format&fit=crop&w=900&q=80' }}" alt="{{ $homeSettings->visual_card_3_title }}" class="story-image">
                     <div class="card-body">
                         <h3 class="h6 text-brand mb-1">{{ $homeSettings->visual_card_3_title }}</h3>
                         <p class="small text-secondary mb-0">{{ $homeSettings->visual_card_3_description }}</p>
@@ -113,7 +113,7 @@
                 <div class="col">
                     <article class="card module-item module-item-rich h-100 border-0 shadow-sm reveal overflow-hidden">
                         @if ($item->cover_image)
-                            <img src="{{ asset('storage/' . $item->cover_image) }}" alt="{{ $item->title }}" class="news-card-img">
+                            <img src="{{ $item->cover_image }}" alt="{{ $item->title }}" class="news-card-img">
                         @endif
                         <div class="card-body d-flex flex-column gap-2">
                             <span class="small text-secondary">{{ optional($item->published_at)->format('M d, Y') }}</span>
@@ -186,8 +186,8 @@
                                                 <span class="small text-secondary">{{ optional($score->kickoff_at)->format('M d, h:i A') }}</span>
                                             </div>
                                             <div class="d-flex align-items-center gap-2 mb-2">
-                                                <img src="{{ $score->home_logo ? asset('storage/' . $score->home_logo) : asset('images/kings-logo.svg') }}" alt="{{ $score->home_team }}" class="img-thumbnail p-1" style="width: 30px; height: 30px; object-fit: cover;">
-                                                <img src="{{ $score->away_logo ? asset('storage/' . $score->away_logo) : asset('images/kings-logo.svg') }}" alt="{{ $score->away_team }}" class="img-thumbnail p-1" style="width: 30px; height: 30px; object-fit: cover;">
+                                                <img src="{{ $score->home_logo ? $score->home_logo : asset('images/kings-logo.svg') }}" alt="{{ $score->home_team }}" class="img-thumbnail p-1" style="width: 30px; height: 30px; object-fit: cover;">
+                                                <img src="{{ $score->away_logo ? $score->away_logo : asset('images/kings-logo.svg') }}" alt="{{ $score->away_team }}" class="img-thumbnail p-1" style="width: 30px; height: 30px; object-fit: cover;">
                                             </div>
                                             <p class="fw-semibold text-brand mb-1">{{ $score->home_team }} vs {{ $score->away_team }}</p>
                                             <p class="mb-0">{{ $score->home_score ?? '-' }} - {{ $score->away_score ?? '-' }}</p>
@@ -231,7 +231,7 @@
                             <div class="col">
                                 <article class="card border-0 shadow-sm h-100 reveal overflow-hidden">
                                     <img
-                                        src="{{ $item->image_path ? asset('storage/' . $item->image_path) : asset('images/gallery-placeholder.svg') }}"
+                                        src="{{ $item->image_path ? $item->image_path : asset('images/gallery-placeholder.svg') }}"
                                         alt="{{ $item->title }}"
                                         class="story-image"
                                     >
@@ -253,7 +253,7 @@
                                     <a href="{{ route('events.show', $event->slug) }}" class="text-decoration-none">
                                         <div class="p-3 border rounded-3 score-mini">
                                             <img
-                                                src="{{ $event->featured_image ? asset('storage/' . $event->featured_image) : asset('images/gallery-placeholder.svg') }}"
+                                                src="{{ $event->featured_image ? $event->featured_image : asset('images/gallery-placeholder.svg') }}"
                                                 alt="{{ $event->title }}"
                                                 class="img-fluid rounded mb-2"
                                                 style="height: 120px; width: 100%; object-fit: cover;"

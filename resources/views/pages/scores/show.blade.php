@@ -16,8 +16,8 @@
                 <article class="card border-0 shadow-sm h-100">
                     <div class="card-body p-4 p-lg-5">
                         <div class="d-flex align-items-center gap-3 mb-3">
-                            <img src="{{ $liveScore->home_logo ? asset('storage/' . $liveScore->home_logo) : asset('images/kings-logo.svg') }}" alt="{{ $liveScore->home_team }}" class="img-thumbnail p-1" style="width: 54px; height: 54px; object-fit: cover;">
-                            <img src="{{ $liveScore->away_logo ? asset('storage/' . $liveScore->away_logo) : asset('images/kings-logo.svg') }}" alt="{{ $liveScore->away_team }}" class="img-thumbnail p-1" style="width: 54px; height: 54px; object-fit: cover;">
+                            <img src="{{ $liveScore->home_logo ? $liveScore->home_logo : asset('images/kings-logo.svg') }}" alt="{{ $liveScore->home_team }}" class="img-thumbnail p-1" style="width: 54px; height: 54px; object-fit: cover;">
+                            <img src="{{ $liveScore->away_logo ? $liveScore->away_logo : asset('images/kings-logo.svg') }}" alt="{{ $liveScore->away_team }}" class="img-thumbnail p-1" style="width: 54px; height: 54px; object-fit: cover;">
                         </div>
                         <div class="d-flex justify-content-between align-items-center mb-3">
                             <h2 class="h5 mb-0">{{ $liveScore->home_team }} vs {{ $liveScore->away_team }}</h2>
@@ -66,8 +66,8 @@
                     <article class="card border-0 shadow-sm h-100">
                         <div class="card-body">
                             <div class="d-flex align-items-center gap-2 mb-2">
-                                <img src="{{ $item->home_logo ? asset('storage/' . $item->home_logo) : asset('images/kings-logo.svg') }}" alt="{{ $item->home_team }}" class="img-thumbnail p-1" style="width: 34px; height: 34px; object-fit: cover;">
-                                <img src="{{ $item->away_logo ? asset('storage/' . $item->away_logo) : asset('images/kings-logo.svg') }}" alt="{{ $item->away_team }}" class="img-thumbnail p-1" style="width: 34px; height: 34px; object-fit: cover;">
+                                <img src="{{ $item->home_logo ? $item->home_logo : asset('images/kings-logo.svg') }}" alt="{{ $item->home_team }}" class="img-thumbnail p-1" style="width: 34px; height: 34px; object-fit: cover;">
+                                <img src="{{ $item->away_logo ? $item->away_logo : asset('images/kings-logo.svg') }}" alt="{{ $item->away_team }}" class="img-thumbnail p-1" style="width: 34px; height: 34px; object-fit: cover;">
                             </div>
                             <p class="small text-secondary mb-2">{{ optional($item->kickoff_at)->format('M d, Y h:i A') }}</p>
                             <h3 class="h6 mb-2 text-brand">{{ $item->home_team }} vs {{ $item->away_team }}</h3>

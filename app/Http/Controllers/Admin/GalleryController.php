@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\GalleryItem;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
+use App\Services\CloudinaryUploader;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 use Illuminate\View\View;
@@ -61,7 +61,7 @@ class GalleryController extends Controller
             $galleryItem->sort_order = $sortOrderBase + $index;
             $galleryItem->is_featured = $index === 0;
             $galleryItem->is_published = $isPublished;
-            $galleryItem->image_path = $image->store('gallery', 'public');
+            $galleryItem->image_path = CloudinaryUploader::uploadImage($image, 'gallery');
             $galleryItem->save();
             $createdCount++;
         }
@@ -93,7 +93,7 @@ class GalleryController extends Controller
     public function destroy(GalleryItem $galleryItem): RedirectResponse
     {
         if ($galleryItem->image_path) {
-            Storage::disk('public')->delete($galleryItem->image_path);
+            CloudinaryUploader::deleteImage($galleryItem->image_path);
         }
 
         $galleryItem->delete();
@@ -175,10 +175,10 @@ class GalleryController extends Controller
 
         if ($request->hasFile('image')) {
             if ($galleryItem->image_path) {
-                Storage::disk('public')->delete($galleryItem->image_path);
+                CloudinaryUploader::deleteImage($galleryItem->image_path);
             }
 
-            $galleryItem->image_path = $request->file('image')->store('gallery', 'public');
+            $galleryItem->image_path = CloudinaryUploader::uploadImage($request->file('image'), 'gallery');
         }
 
         $galleryItem->save();

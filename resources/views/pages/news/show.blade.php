@@ -17,7 +17,7 @@
                         <p class="small text-secondary mb-3">Published {{ optional($news->published_at)->format('M d, Y \a\t h:i A') }}</p>
 
                         @if ($news->cover_image)
-                            <img src="{{ asset('storage/' . $news->cover_image) }}" alt="{{ $news->title }}" class="img-fluid rounded mb-4 news-detail-img">
+                            <img src="{{ $news->cover_image }}" alt="{{ $news->title }}" class="img-fluid rounded mb-4 news-detail-img">
                         @endif
 
                         <p class="fw-semibold text-brand mb-3">{{ $news->excerpt }}</p>

@@ -39,7 +39,7 @@
                             <tr>
                                 <td>
                                     <img
-                                        src="{{ $program->featured_image ? asset('storage/' . $program->featured_image) : asset('images/gallery-placeholder.svg') }}"
+                                        src="{{ $program->featured_image ? $program->featured_image : asset('images/gallery-placeholder.svg') }}"
                                         alt="{{ $program->title }}"
                                         class="img-thumbnail"
                                         style="width: 64px; height: 64px; object-fit: cover;"

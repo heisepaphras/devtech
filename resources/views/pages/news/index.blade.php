@@ -26,7 +26,7 @@
                         <article class="card border-0 shadow-sm h-100 overflow-hidden">
                             @if ($item->cover_image)
                                 <a href="{{ route('news.show', $item->slug) }}">
-                                    <img src="{{ asset('storage/' . $item->cover_image) }}" alt="{{ $item->title }}" class="card-img-top news-card-img">
+                                    <img src="{{ $item->cover_image }}" alt="{{ $item->title }}" class="card-img-top news-card-img">
                                 </a>
                             @endif
                             <div class="card-body">

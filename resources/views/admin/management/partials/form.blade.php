@@ -71,7 +71,7 @@
     @if ($managementMember->image_path)
         <div class="col-12">
             <span class="fw-semibold d-block mb-2">Current image:</span>
-            <img src="{{ asset('storage/' . $managementMember->image_path) }}" alt="Current management image" class="img-thumbnail image-preview">
+            <img src="{{ $managementMember->image_path }}" alt="Current management image" class="img-thumbnail image-preview">
         </div>
     @endif
 

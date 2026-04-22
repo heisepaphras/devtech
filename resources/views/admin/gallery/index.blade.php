@@ -38,7 +38,7 @@
                             <tr>
                                 <td>
                                     <img
-                                        src="{{ $item->image_path ? asset('storage/' . $item->image_path) : asset('images/gallery-placeholder.svg') }}"
+                                        src="{{ $item->image_path ? $item->image_path : asset('images/gallery-placeholder.svg') }}"
                                         alt="{{ $item->title }}"
                                         class="admin-gallery-thumb rounded"
                                     >

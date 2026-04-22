@@ -39,7 +39,7 @@
                             <tr>
                                 <td>
                                     <img
-                                        src="{{ $item->player_image ? asset('storage/' . $item->player_image) : asset('images/gallery-placeholder.svg') }}"
+                                        src="{{ $item->player_image ? $item->player_image : asset('images/gallery-placeholder.svg') }}"
                                         alt="{{ $item->player_name }}"
                                         class="img-thumbnail"
                                         style="width: 64px; height: 64px; object-fit: cover;"

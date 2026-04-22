@@ -40,13 +40,13 @@
                                 <td>
                                     <div class="d-flex gap-2">
                                         <img
-                                            src="{{ $item->home_logo ? asset('storage/' . $item->home_logo) : asset('images/kings-logo.svg') }}"
+                                            src="{{ $item->home_logo ? $item->home_logo : asset('images/kings-logo.svg') }}"
                                             alt="{{ $item->home_team }}"
                                             class="img-thumbnail"
                                             style="width: 40px; height: 40px; object-fit: cover;"
                                         >
                                         <img
-                                            src="{{ $item->away_logo ? asset('storage/' . $item->away_logo) : asset('images/kings-logo.svg') }}"
+                                            src="{{ $item->away_logo ? $item->away_logo : asset('images/kings-logo.svg') }}"
                                             alt="{{ $item->away_team }}"
                                             class="img-thumbnail"
                                             style="width: 40px; height: 40px; object-fit: cover;"

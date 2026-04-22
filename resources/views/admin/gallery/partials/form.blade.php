@@ -71,7 +71,7 @@
     @if ($galleryItem->image_path)
         <div class="col-12">
             <span class="fw-semibold d-block mb-2">Current image:</span>
-            <img src="{{ asset('storage/' . $galleryItem->image_path) }}" alt="Current gallery image" class="img-thumbnail image-preview">
+            <img src="{{ $galleryItem->image_path }}" alt="Current gallery image" class="img-thumbnail image-preview">
         </div>
     @endif
 

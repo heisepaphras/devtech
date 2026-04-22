@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\HomeSettings;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
+use App\Services\CloudinaryUploader;
 use Illuminate\View\View;
 
 class HomeSettingsController extends Controller
@@ -64,9 +64,9 @@ class HomeSettingsController extends Controller
             if ($request->hasFile($field)) {
                 // Delete old image
                 if ($settings->$field) {
-                    Storage::disk('public')->delete($settings->$field);
+                    CloudinaryUploader::deleteImage($settings->$field);
                 }
-                $validated[$field] = $request->file($field)->store('home', 'public');
+                $validated[$field] = CloudinaryUploader::uploadImage($request->file($field), 'home');
             } else {
                 // Keep existing value
                 unset($validated[$field]);

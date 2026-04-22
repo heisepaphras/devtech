@@ -97,7 +97,7 @@
     @if ($transferItem->player_image)
         <div class="col-12">
             <span class="fw-semibold d-block mb-2">Current image:</span>
-            <img src="{{ asset('storage/' . $transferItem->player_image) }}" alt="Current transfer player image" class="img-thumbnail image-preview">
+            <img src="{{ $transferItem->player_image }}" alt="Current transfer player image" class="img-thumbnail image-preview">
         </div>
     @endif
 

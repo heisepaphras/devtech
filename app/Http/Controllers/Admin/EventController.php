@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\EventItem;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
+use App\Services\CloudinaryUploader;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 use Illuminate\View\View;
@@ -72,7 +72,7 @@ class EventController extends Controller
     public function destroy(EventItem $eventItem): RedirectResponse
     {
         if ($eventItem->featured_image) {
-            Storage::disk('public')->delete($eventItem->featured_image);
+            CloudinaryUploader::deleteImage($eventItem->featured_image);
         }
 
         $eventItem->delete();
@@ -130,10 +130,10 @@ class EventController extends Controller
         $eventItem->registration_link = $validated['registration_link'] ?? null;
         if ($request->hasFile('featured_image')) {
             if ($eventItem->featured_image) {
-                Storage::disk('public')->delete($eventItem->featured_image);
+                CloudinaryUploader::deleteImage($eventItem->featured_image);
             }
 
-            $eventItem->featured_image = $request->file('featured_image')->store('events', 'public');
+            $eventItem->featured_image = CloudinaryUploader::uploadImage($request->file('featured_image'), 'events');
         }
         $eventItem->sort_order = $validated['sort_order'] ?? 0;
         $eventItem->is_featured = $request->boolean('is_featured');

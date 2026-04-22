@@ -53,7 +53,7 @@
         <div class="col-12">
             <div class="d-flex flex-column gap-2">
                 <span class="fw-semibold">Current image:</span>
-                <img src="{{ asset('storage/' . $news->cover_image) }}" alt="Current cover image" class="img-thumbnail image-preview">
+                <img src="{{ $news->cover_image }}" alt="Current cover image" class="img-thumbnail image-preview">
             </div>
         </div>
     @endif

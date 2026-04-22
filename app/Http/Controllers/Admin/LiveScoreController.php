@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\LiveScore;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
+use App\Services\CloudinaryUploader;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 use Illuminate\View\View;
@@ -81,11 +81,11 @@ class LiveScoreController extends Controller
     public function destroy(LiveScore $liveScore): RedirectResponse
     {
         if ($liveScore->home_logo) {
-            Storage::disk('public')->delete($liveScore->home_logo);
+            CloudinaryUploader::deleteImage($liveScore->home_logo);
         }
 
         if ($liveScore->away_logo) {
-            Storage::disk('public')->delete($liveScore->away_logo);
+            CloudinaryUploader::deleteImage($liveScore->away_logo);
         }
 
         $liveScore->delete();
@@ -142,18 +142,18 @@ class LiveScoreController extends Controller
         $liveScore->home_team = $validated['home_team'];
         if ($request->hasFile('home_logo')) {
             if ($liveScore->home_logo) {
-                Storage::disk('public')->delete($liveScore->home_logo);
+                CloudinaryUploader::deleteImage($liveScore->home_logo);
             }
 
-            $liveScore->home_logo = $request->file('home_logo')->store('live-scores', 'public');
+            $liveScore->home_logo = CloudinaryUploader::uploadImage($request->file('home_logo'), 'live-scores');
         }
         $liveScore->away_team = $validated['away_team'];
         if ($request->hasFile('away_logo')) {
             if ($liveScore->away_logo) {
-                Storage::disk('public')->delete($liveScore->away_logo);
+                CloudinaryUploader::deleteImage($liveScore->away_logo);
             }
 
-            $liveScore->away_logo = $request->file('away_logo')->store('live-scores', 'public');
+            $liveScore->away_logo = CloudinaryUploader::uploadImage($request->file('away_logo'), 'live-scores');
         }
         $liveScore->venue = $validated['venue'] ?? null;
         $liveScore->kickoff_at = $validated['kickoff_at'];

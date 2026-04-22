@@ -21,7 +21,7 @@
                 <div class="card border-0 shadow-sm h-100">
                     <div class="card-body p-4">
                         @if ($playerProfile->profile_image)
-                            <img src="{{ asset('storage/' . $playerProfile->profile_image) }}" alt="{{ $playerProfile->full_name }}" class="img-fluid rounded mb-3">
+                            <img src="{{ $playerProfile->profile_image }}" alt="{{ $playerProfile->full_name }}" class="img-fluid rounded mb-3">
                         @endif
 
                         <h2 class="h5 section-title mb-3">Player Details</h2>
@@ -68,7 +68,7 @@
                                 <a class="btn btn-brand" href="{{ $playerProfile->video_url }}" target="_blank" rel="noopener">Watch Video</a>
                             @endif
                             @if ($playerProfile->cv_document)
-                                <a class="btn btn-outline-brand" href="{{ asset('storage/' . $playerProfile->cv_document) }}" target="_blank" rel="noopener">Download CV (PDF)</a>
+                                <a class="btn btn-outline-brand" href="{{ $playerProfile->cv_document }}" target="_blank" rel="noopener">Download CV (PDF)</a>
                             @endif
                             <a class="btn btn-outline-secondary" href="{{ route('player.profiles') }}">Back to Profiles</a>
                         </div>

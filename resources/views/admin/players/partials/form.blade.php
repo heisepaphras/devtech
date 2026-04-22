@@ -119,14 +119,14 @@
     @if ($playerProfile->profile_image)
         <div class="col-md-6">
             <span class="fw-semibold d-block mb-2">Current image:</span>
-            <img src="{{ asset('storage/' . $playerProfile->profile_image) }}" alt="Current player image" class="img-thumbnail image-preview">
+            <img src="{{ $playerProfile->profile_image }}" alt="Current player image" class="img-thumbnail image-preview">
         </div>
     @endif
 
     @if ($playerProfile->cv_document)
         <div class="col-md-6">
             <span class="fw-semibold d-block mb-2">Current CV:</span>
-            <a href="{{ asset('storage/' . $playerProfile->cv_document) }}" class="btn btn-outline-secondary btn-sm" target="_blank" rel="noopener">Open current CV</a>
+            <a href="{{ $playerProfile->cv_document }}" class="btn btn-outline-secondary btn-sm" target="_blank" rel="noopener">Open current CV</a>
         </div>
     @endif
 

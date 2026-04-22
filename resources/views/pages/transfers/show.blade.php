@@ -15,7 +15,7 @@
             <div class="col-lg-8">
                 <article class="card border-0 shadow-sm h-100">
                     <img
-                        src="{{ $transferItem->player_image ? asset('storage/' . $transferItem->player_image) : asset('images/gallery-placeholder.svg') }}"
+                        src="{{ $transferItem->player_image ? $transferItem->player_image : asset('images/gallery-placeholder.svg') }}"
                         alt="{{ $transferItem->player_name }}"
                         class="card-img-top news-card-img"
                     >
@@ -63,7 +63,7 @@
                 <div class="col">
                     <article class="card border-0 shadow-sm h-100">
                         <img
-                            src="{{ $item->player_image ? asset('storage/' . $item->player_image) : asset('images/gallery-placeholder.svg') }}"
+                            src="{{ $item->player_image ? $item->player_image : asset('images/gallery-placeholder.svg') }}"
                             alt="{{ $item->player_name }}"
                             class="card-img-top news-card-img"
                         >
