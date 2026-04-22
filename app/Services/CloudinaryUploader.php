@@ -2,19 +2,26 @@
 
 namespace App\Services;
 
-use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
+use Cloudinary\Cloudinary;
 use Illuminate\Http\UploadedFile;
 
 class CloudinaryUploader
 {
+    private static function sdk(): Cloudinary
+    {
+        return app(Cloudinary::class);
+    }
+
     /**
      * Upload an image file to Cloudinary and return the secure URL.
      */
     public static function uploadImage(UploadedFile $file, string $folder): string
     {
-        return Cloudinary::upload($file->getRealPath(), [
+        $result = self::sdk()->uploadApi()->upload($file->getRealPath(), [
             'folder' => 'academy/' . $folder,
-        ])->getSecurePath();
+        ]);
+
+        return $result['secure_url'];
     }
 
     /**
@@ -22,10 +29,12 @@ class CloudinaryUploader
      */
     public static function uploadRaw(UploadedFile $file, string $folder): string
     {
-        return Cloudinary::uploadFile($file->getRealPath(), [
+        $result = self::sdk()->uploadApi()->upload($file->getRealPath(), [
             'folder'        => 'academy/' . $folder,
             'resource_type' => 'raw',
-        ])->getSecurePath();
+        ]);
+
+        return $result['secure_url'];
     }
 
     /**
@@ -35,7 +44,7 @@ class CloudinaryUploader
     {
         $publicId = self::extractPublicId($url, false);
         if ($publicId) {
-            Cloudinary::destroy($publicId);
+            self::sdk()->uploadApi()->destroy($publicId);
         }
     }
 
@@ -46,7 +55,7 @@ class CloudinaryUploader
     {
         $publicId = self::extractPublicId($url, true);
         if ($publicId) {
-            Cloudinary::destroy($publicId, ['resource_type' => 'raw']);
+            self::sdk()->uploadApi()->destroy($publicId, ['resource_type' => 'raw']);
         }
     }
 
@@ -64,7 +73,7 @@ class CloudinaryUploader
 
         $path = $matches[1];
 
-        // For image resources, strip the file extension as it's not part of the public_id.
+        // For image resources, strip the file extension — it is not part of the public_id.
         // For raw resources, the extension is included in the public_id.
         if (!$isRaw) {
             $path = (string) preg_replace('/\.[^.\/]+$/', '', $path);
