@@ -35,4 +35,8 @@ return [
         ],
     ],
 
+    'paystack' => [
+        'payment_url' => env('PAYSTACK_PAYMENT_URL', 'https://paystack.com/pay/abuja-kings-football'),
+    ],
+
 ];

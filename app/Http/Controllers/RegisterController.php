@@ -65,7 +65,8 @@ class RegisterController extends Controller
 
         return redirect()
             ->route('register')
-            ->with('status', 'Application submitted successfully. Reference: ' . $application->reference_code);
+            ->with('status', 'Application submitted successfully. Reference: ' . $application->reference_code)
+            ->with('ref_code', $application->reference_code);
     }
 
     private function generateReferenceCode(): string
