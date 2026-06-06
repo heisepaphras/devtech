@@ -60,6 +60,14 @@
                                 </span>
                             </li>
                             <li>
+                                <strong class="d-block mb-1">Make Payments</strong>
+                                <span class="text-secondary small">
+                                    Make payments of 20,000 Naira to the account below
+                                    <strong class="d-block text-dark mt-1">2048087728 (First Bank PLC) - Abuja Kings Football Academy</strong>
+                                    And attach the proof of payment to the form.
+                                </span>
+                            </li>
+                            <li>
                                 <strong class="d-block mb-1">Send to us on WhatsApp</strong>
                                 <span class="text-secondary small">
                                     Once completed, send the filled form (and photo) directly to our
