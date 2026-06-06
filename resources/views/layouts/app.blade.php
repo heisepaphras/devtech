@@ -34,6 +34,7 @@
             ['route' => 'players.management', 'label' => 'Academy Players / Management', 'active' => 'players.management'],
             ['route' => 'players.value', 'label' => 'Players Value', 'active' => 'players.value*'],
             ['route' => 'live.score', 'label' => 'Live Score', 'active' => 'live.score*'],
+            ['route' => 'international.score', 'label' => 'International Score', 'active' => 'international.score*'],
             ['route' => 'scouting.trials', 'label' => 'Scouting & Trials Programs', 'active' => 'scouting.trials*'],
             ['route' => 'register', 'label' => 'Register Now', 'active' => 'register*'],
         ];
@@ -151,6 +152,7 @@
                         <li><a href="{{ route('player.profiles') }}">Player CV</a></li>
                         <li><a href="{{ route('transfer.market') }}">Transfer Market</a></li>
                         <li><a href="{{ route('live.score') }}">Live Score</a></li>
+                        <li><a href="{{ route('international.score') }}">International Score</a></li>
                         <li><a href="{{ route('videos') }}">Video Clips</a></li>
                     </ul>
                 </div>

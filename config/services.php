@@ -39,4 +39,9 @@ return [
         'payment_url' => env('PAYSTACK_PAYMENT_URL', 'https://paystack.shop/pay/kingsfa'),
     ],
 
+    'api_football' => [
+        'key' => env('APIFOOTBALL_KEY'),
+        'url' => env('APIFOOTBALL_URL', 'https://v3.football.api-sports.io'),
+    ],
+
 ];

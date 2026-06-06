@@ -20,6 +20,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InstallController;
 use App\Http\Controllers\PlayersManagementController;
 use App\Http\Controllers\LiveScoreController;
+use App\Http\Controllers\InternationalScoreController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\PlayerValueController;
 use App\Http\Controllers\RegisterController;
@@ -63,6 +64,7 @@ Route::get('/players-value', [PlayerValueController::class, 'index'])->name('pla
 Route::get('/players-value/{slug}', [PlayerValueController::class, 'show'])->name('players.value.show');
 Route::get('/live-score', [LiveScoreController::class, 'index'])->name('live.score');
 Route::get('/live-score/{slug}', [LiveScoreController::class, 'show'])->name('live.score.show');
+Route::get('/international-score', [InternationalScoreController::class, 'index'])->name('international.score');
 Route::get('/video-clips', [VideoClipController::class, 'index'])->name('videos');
 Route::get('/video-clips/{slug}', [VideoClipController::class, 'show'])->name('videos.show');
 Route::get('/scouting-trials-programs', [ScoutingProgramController::class, 'index'])->name('scouting.trials');
