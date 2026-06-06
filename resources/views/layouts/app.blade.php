@@ -82,6 +82,7 @@
     @if ($isAdminUser && $isAdminRoute)
         @php
             $adminItems = [
+                ['name' => 'admin.analytics.index', 'label' => 'Analytics'],
                 ['name' => 'admin.home-settings.edit', 'label' => 'Home Settings'],
                 ['name' => 'admin.news.index', 'label' => 'News'],
                 ['name' => 'admin.gallery.index', 'label' => 'Gallery'],

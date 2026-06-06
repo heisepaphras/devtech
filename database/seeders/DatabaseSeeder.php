@@ -663,5 +663,7 @@ class DatabaseSeeder extends Seeder
                 $item
             );
         }
+
+        $this->call(VisitorLogSeeder::class);
     }
 }

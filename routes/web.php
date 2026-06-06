@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\LiveScoreController as AdminLiveScoreController;
 use App\Http\Controllers\Admin\RegistrationController as AdminRegistrationController;
 use App\Http\Controllers\Admin\AuthController as AdminAuthController;
 use App\Http\Controllers\Admin\HomeSettingsController as AdminHomeSettingsController;
+use App\Http\Controllers\Admin\AnalyticsController as AdminAnalyticsController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\HomeController;
@@ -82,6 +83,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::middleware('admin.auth')->group(function () {
         Route::post('/logout', [AdminAuthController::class, 'destroy'])->name('logout');
         Route::redirect('/', '/admin/news')->name('dashboard');
+
+        Route::get('/analytics', [AdminAnalyticsController::class, 'index'])->name('analytics.index');
 
         Route::get('/home-settings', [AdminHomeSettingsController::class, 'edit'])->name('home-settings.edit');
         Route::put('/home-settings', [AdminHomeSettingsController::class, 'update'])->name('home-settings.update');
